@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ខ្មែរម៉ាត - KhmerMart Online Store</title>
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>✨ ប្រូម៉ូសិនពិសេស៖ ចុះតម្លៃរហូតដល់ 30% សម្រាប់ការបញ្ជាទិញលើកដំបូង! ដឹកជញ្ជូនឥតគិតថ្លៃទូទាំងរាជធានីភ្នំពេញ</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <span class="logo-text">ខ្មែរ<span>ម៉ាត</span></span>
+      </a>
+
+      <!-- Search Input -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="ស្វែងរកទំនិញដែលអ្នកពេញចិត្ត...">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button class="cart-btn" id="openCartBtn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-label">កន្ត្រក</span>
+          <span class="badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    <!-- Hero Banner Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="hero-tag">🔥 ទំនិញពេញនិយមប្រចាំខែ</span>
+        <h1 class="hero-title">ទិញទំនិញគុណភាពខ្ពស់<br>ជាមួយ<span>តម្លៃសមរម្យ</span></h1>
+        <p class="hero-desc">រីករាយជាមួយការដើរទិញឥវ៉ាន់អនឡាញយ៉ាងងាយស្រួល សុវត្ថិភាព និងការដឹកជញ្ជូនរហ័សទាន់ចិត្តដល់គេហដ្ឋានរបស់អ្នក។</p>
+        <a href="#productsSection" class="btn-primary">មើលទំនិញទាំងអស់ <i class="fa-solid fa-arrow-down"></i></a>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80" alt="Special Product">
+        <div class="hero-badge">ពេញនិយមបំផុត ⭐ 4.9</div>
+      </div>
+    </section>
+
+    <!-- Filter Categories -->
+    <section class="filter-section" id="productsSection">
+      <div class="section-header">
+        <h2 class="section-title">បញ្ជីទំនិញទាំងអស់</h2>
+        <span class="product-count" id="productCount">បង្ហាញ 6 មុខ</span>
+      </div>
+      <div class="category-pills" id="categoryContainer">
+        <button class="pill-btn active" data-category="all">ទាំងអស់</button>
+        <button class="pill-btn" data-category="clothing">សម្លៀកបំពាក់</button>
+        <button class="pill-btn" data-category="electronics">គ្រឿងអេឡិចត្រូនិក</button>
+        <button class="pill-btn" data-category="shoes">ស្បែកជើង</button>
+        <button class="pill-btn" data-category="accessories">គ្រឿងអលង្ការ</button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid">
+      <!-- Data rendered by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Shopping Cart Drawer (Offcanvas) -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>កន្ត្រកទំនិញរបស់អ្នក</h3>
+      </div>
+      <button class="close-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Items List -->
+    <div class="drawer-body" id="cartItemList">
+      <!-- Injected by script.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="drawer-footer">
+      <div class="summary-row">
+        <span>តម្លៃសរុប (Subtotal)</span>
+        <span id="subtotalPrice">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>ពន្ធលើទំនិញ (Tax 10%)</span>
+        <span id="taxPrice">$0.00</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>ទឹកប្រាក់សរុបចុងក្រោយ</span>
+        <span id="totalPrice">$0.00</span>
+      </div>
+      <button class="btn-checkout" id="checkoutBtn" disabled>
+        បន្តទៅការទូទាត់ប្រាក់ <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>បំពេញព័ត៌មានដឹកជញ្ជូន</h3>
+        <button class="close-btn" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label>ឈ្មោះពេញរបស់អ្នក</label>
+          <input type="text" required placeholder="ឧ. ចាន់ ណា">
+        </div>
+        <div class="form-group">
+          <label>លេខទូរស័ព្ទ</label>
+          <input type="tel" required placeholder="ឧ. 012 345 678">
+        </div>
+        <div class="form-group">
+          <label>អាសយដ្ឋានដឹកជញ្ជូន</label>
+          <textarea rows="3" required placeholder="ផ្ទះលេខ, ផ្លូវ, សង្កាត់, ខណ្ឌ/ក្រុង..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>វិធីសាស្ត្រទូទាត់ប្រាក់</label>
+          <select required>
+            <option value="cod">ទូទាត់ប្រាក់ពេលទំនិញទៅដល់ (COD)</option>
+            <option value="aba">ABA Pay / KHQR</option>
+            <option value="acleda">ACLEDA Mobile</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary btn-block">បញ្ជាក់ការទិញទំនិញ</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">បានបន្ថែមទំនិញទៅក្នុងកន្ត្រក!</span>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
